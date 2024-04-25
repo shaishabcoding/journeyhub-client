@@ -23,16 +23,16 @@ const Navbar = () => {
       </li>
       <div className="md:hidden">
         <li>
-          <Link to="/all">Login</Link>
+          <Link to="/login">Login</Link>
         </li>
         <li>
-          <Link to="/all">Register</Link>
+          <Link to="/register">Register</Link>
         </li>
       </div>
     </>
   );
   return (
-    <div className="navbar bg-gray-200 lg:rounded-lg">
+    <div className="navbar bg-gray-100 lg:rounded-lg">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -92,7 +92,7 @@ const Navbar = () => {
             <Link to="/login" className="btn bg-white">
               Login <FiLogIn />
             </Link>
-            <Link to="/login" className="btn bg-white">
+            <Link to="/register" className="btn bg-white">
               Register <FiLogIn />
             </Link>
           </div>
