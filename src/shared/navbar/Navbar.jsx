@@ -13,7 +13,7 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/spots">All Tourists Spot</NavLink>
+        <NavLink to="/spots/all">All Tourists Spot</NavLink>
       </li>
       {user ? (
         <>
@@ -21,7 +21,7 @@ const Navbar = () => {
             <NavLink to="/spots/new">Add Tourists Spot</NavLink>
           </li>
           <li>
-            <NavLink to="/all">My List</NavLink>
+            <NavLink to="/spots/my">My List</NavLink>
           </li>
           <li className="md:hidden mt-2">
             <button

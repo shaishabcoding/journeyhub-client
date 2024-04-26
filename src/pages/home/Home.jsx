@@ -12,7 +12,7 @@ const Home = () => {
           Popular Tourists Spot
         </h2>
         <TouristsSpots spots={spots.slice(0, 6)}></TouristsSpots>
-        <Link to="/spots" className="w-fit mx-auto block my-4">
+        <Link to="/spots/all" className="w-fit mx-auto block my-4">
           <button className="btn btn-primary">View all</button>
         </Link>
       </div>

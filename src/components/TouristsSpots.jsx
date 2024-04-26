@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const TouristsSpots = ({ spots }) => {
+const TouristsSpots = ({ spots, admin = false }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 lg:mx-0">
       {spots.map((spot) => {
@@ -25,9 +25,19 @@ const TouristsSpots = ({ spots }) => {
             <div className="p-3 pb-5 bg-white grow flex flex-col">
               <h2 className="text-2xl font-semibold">{title}</h2>
               <p className="my-3 grow">{description.slice(0, 150)}...</p>
-              <Link className="grid w-full" to={`/spot/${_id}`}>
-                <button className="btn btn-accent btn-sm">View Details</button>
-              </Link>
+              <div className="grid gap-3">
+                <Link className="grid w-full" to={`/spot/${_id}`}>
+                  <button className="btn btn-accent btn-sm">
+                    View Details
+                  </button>
+                </Link>
+                {admin && (
+                  <>
+                    <button className="btn btn-info btn-sm">Update</button>
+                    <button className="btn btn-error btn-sm">Delete</button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         );
@@ -37,5 +47,6 @@ const TouristsSpots = ({ spots }) => {
 };
 TouristsSpots.propTypes = {
   spots: PropTypes.array.isRequired,
+  admin: PropTypes.bool,
 };
 export default TouristsSpots;

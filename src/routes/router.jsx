@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import Login from "../pages/signInUp/Login";
 import Error from "../pages/404/Error";
 import AllSpots from "../pages/allSpots/AllSpots";
+import MySpot from "../pages/mySpot/MySpot";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/spots/all",
+        loader: () => fetch("http://localhost:5000/spots"),
+        element: <AllSpots></AllSpots>,
+      },
+      {
         path: "/spot/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/spot/${params.id}`),
@@ -47,9 +53,12 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/spots",
-        loader: () => fetch("http://localhost:5000/spots"),
-        element: <AllSpots></AllSpots>,
+        path: "/spots/my",
+        element: (
+          <PrivateRoute>
+            <MySpot></MySpot>
+          </PrivateRoute>
+        ),
       },
     ],
   },
