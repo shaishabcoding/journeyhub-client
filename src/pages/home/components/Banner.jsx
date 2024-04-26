@@ -47,7 +47,7 @@ const Banner = () => {
           <SwiperSlide
             style={{ backgroundImage: `url(${slide.image})` }}
             key={idx}
-            className=" bg-cover bg-center"
+            className="bg-cover bg-center"
           >
             <div className="flex items-center justify-center flex-col h-full bg-black/30 gap-4 md:gap-6 px-6 md:px-20 py-10 text-center">
               <h4 className="text-xl md:text-4xl font-bold">{slide.title}</h4>

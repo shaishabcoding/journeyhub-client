@@ -13,7 +13,7 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/all">All Tourists Spot</NavLink>
+        <NavLink to="/spots">All Tourists Spot</NavLink>
       </li>
       {user ? (
         <>

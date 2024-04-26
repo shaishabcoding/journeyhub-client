@@ -7,6 +7,7 @@ import SpotDetails from "../pages/spotDetails/SpotDetails";
 import PrivateRoute from "./PrivateRoute";
 import Login from "../pages/signInUp/Login";
 import Error from "../pages/404/Error";
+import AllSpots from "../pages/allSpots/AllSpots";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
             <SpotDetails></SpotDetails>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/spots",
+        loader: () => fetch("http://localhost:5000/spots"),
+        element: <AllSpots></AllSpots>,
       },
     ],
   },
