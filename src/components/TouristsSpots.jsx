@@ -33,7 +33,9 @@ const TouristsSpots = ({ spots, admin = false, handleDelete = () => {} }) => {
                 </Link>
                 {admin && (
                   <>
-                    <button className="btn btn-info btn-sm">Update</button>
+                    <Link className="grid w-full" to={`/spot/update/${_id}`}>
+                      <button className="btn btn-info btn-sm">Update</button>
+                    </Link>
                     <button
                       className="btn btn-error btn-sm"
                       onClick={handleDelete(_id)}

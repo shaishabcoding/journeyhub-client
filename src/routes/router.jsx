@@ -3,6 +3,7 @@ import Home from "../pages/home/Home";
 import Root from "../layout/Root";
 import Register from "../pages/signInUp/Register";
 import AddSpot from "../pages/addSpot/AddSpot";
+import UpdateSpot from "../pages/updateSpot/UpdateSpot";
 import SpotDetails from "../pages/spotDetails/SpotDetails";
 import PrivateRoute from "./PrivateRoute";
 import Login from "../pages/signInUp/Login";
@@ -34,6 +35,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddSpot></AddSpot>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/spot/update/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/spot/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <UpdateSpot></UpdateSpot>
           </PrivateRoute>
         ),
       },
