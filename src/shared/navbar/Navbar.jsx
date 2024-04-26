@@ -18,7 +18,7 @@ const Navbar = () => {
       {user ? (
         <>
           <li>
-            <NavLink to="/all">Add Tourists Spot</NavLink>
+            <NavLink to="/spots/new">Add Tourists Spot</NavLink>
           </li>
           <li>
             <NavLink to="/all">My List</NavLink>
