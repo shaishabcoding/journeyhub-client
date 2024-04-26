@@ -25,7 +25,7 @@ const Navbar = () => {
           </li>
           <li className="md:hidden mt-2">
             <button
-              className="btn btn-xs text-xs p-0 bg-white"
+              className="btn btn-sm text-xs p-0 bg-white"
               onClick={logOut}
             >
               Logout <HiOutlineLogout />
@@ -36,10 +36,10 @@ const Navbar = () => {
         <>
           <div className="md:hidden">
             <li>
-              <Link to="/login">Login</Link>
+              <NavLink to="/login">Login</NavLink>
             </li>
             <li>
-              <Link to="/register">Register</Link>
+              <NavLink to="/register">Register</NavLink>
             </li>
           </div>
         </>
@@ -47,7 +47,10 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-gray-100 lg:rounded-lg">
+    <nav
+      id="sidebar"
+      className="navbar bg-gradient-to-l from-green-50 via-pink-50 to-sky-50 lg:rounded-lg"
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,7 +71,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu z-50 menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu z-50 bg-gradient-to-br border border-gray-300 from-green-100 via-pink-100 to-sky-100 menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {links}
           </ul>
@@ -113,7 +116,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 
