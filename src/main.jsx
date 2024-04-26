@@ -7,6 +7,7 @@ import Root from "./layout/Root";
 import Register from "./pages/signInUp/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Login from "./pages/signInUp/Login";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },

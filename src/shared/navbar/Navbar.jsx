@@ -15,20 +15,35 @@ const Navbar = () => {
       <li>
         <NavLink to="/all">All Tourists Spot</NavLink>
       </li>
-      <li>
-        <NavLink to="/all">Add Tourists Spot</NavLink>
-      </li>
-      <li>
-        <NavLink to="/all">My List</NavLink>
-      </li>
-      <div className="md:hidden">
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-      </div>
+      {user ? (
+        <>
+          <li>
+            <NavLink to="/all">Add Tourists Spot</NavLink>
+          </li>
+          <li>
+            <NavLink to="/all">My List</NavLink>
+          </li>
+          <li className="md:hidden mt-2">
+            <button
+              className="btn btn-xs text-xs p-0 bg-white"
+              onClick={logOut}
+            >
+              Logout <HiOutlineLogout />
+            </button>
+          </li>
+        </>
+      ) : (
+        <>
+          <div className="md:hidden">
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+          </div>
+        </>
+      )}
     </>
   );
   return (

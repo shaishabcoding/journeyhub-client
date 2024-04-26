@@ -133,11 +133,7 @@ const Register = () => {
           </button>
         </div>
         <div>
-          <button
-            type="submit"
-            id="register-btn"
-            className="btn w-full btn-primary "
-          >
+          <button type="submit" className="btn w-full btn-primary ">
             Register <BiUserPlus />
           </button>
         </div>
