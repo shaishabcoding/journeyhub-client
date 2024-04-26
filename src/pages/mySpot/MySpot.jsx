@@ -13,22 +13,34 @@ const MySpot = () => {
   }, [user]);
 
   const handleDelete = (id) => () => {
-    fetch(`http://localhost:5000/spot/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          Swal.fire({
-            title: "Success",
-            text: "Delete successfully!",
-            icon: "success",
-            confirmButtonText: "Done",
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/spot/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Success",
+                text: "Delete successfully!",
+                icon: "success",
+                confirmButtonText: "Done",
+              });
+              const newSpots = spots.filter((spot) => spot._id !== id);
+              setSpots(newSpots);
+            }
           });
-          const newSpots = spots.filter((spot) => spot._id !== id);
-          setSpots(newSpots);
-        }
-      });
+      }
+    });
   };
 
   return (
