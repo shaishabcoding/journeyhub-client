@@ -5,11 +5,13 @@ import Register from "../pages/signInUp/Register";
 import AddSpot from "../pages/addSpot/AddSpot";
 import PrivateRoute from "./PrivateRoute";
 import Login from "../pages/signInUp/Login";
+import Error from "../pages/404/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",

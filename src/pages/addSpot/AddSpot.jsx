@@ -24,7 +24,7 @@ const AddSpot = () => {
         <form className="" onSubmit={handleFormSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-4">
             <label className="input input-bordered flex items-center gap-2">
-              Image
+              Image :
               <input
                 type="url"
                 className="grow"
@@ -34,7 +34,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Title
+              Title :
               <input
                 type="text"
                 className="grow"
@@ -44,7 +44,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Country
+              Country :
               <select
                 required
                 {...register("country")}
@@ -59,7 +59,7 @@ const AddSpot = () => {
               </select>
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Location
+              Location :
               <input
                 type="text"
                 className="grow"
@@ -69,7 +69,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Cost
+              Cost :
               <input
                 type="number"
                 className="grow"
@@ -79,7 +79,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Seasonality
+              Seasonality :
               <select
                 required
                 {...register("season")}
@@ -94,7 +94,7 @@ const AddSpot = () => {
               </select>
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Time
+              Time :
               <input
                 type="number"
                 className="grow"
@@ -104,7 +104,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Visitors
+              Visitors :
               <input
                 type="number"
                 className="grow"
@@ -114,20 +114,20 @@ const AddSpot = () => {
               />
             </label>
             <label className="input bg-gray-50 input-bordered flex items-center gap-2">
-              Email
+              Email :
               <input
                 type="text"
-                className="grow"
+                className="grow cursor-not-allowed"
                 placeholder="Enter tourists spot name"
                 {...register("email")}
                 disabled
               />
             </label>
             <label className="input bg-gray-50 input-bordered flex items-center gap-2">
-              Name
+              Name :
               <input
                 type="text"
-                className="grow"
+                className="grow cursor-not-allowed"
                 placeholder="Enter user name"
                 {...register("name")}
                 disabled
