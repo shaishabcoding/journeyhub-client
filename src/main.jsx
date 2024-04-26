@@ -8,12 +8,17 @@ import Register from "./pages/signInUp/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./pages/signInUp/Login";
+import Home from "./pages/home/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
     children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
       {
         path: "/register",
         element: <Register></Register>,
