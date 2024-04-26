@@ -1,10 +1,35 @@
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const TouristsSpots = ({ spots, admin = false }) => {
+  const [allSpots, setAllSpots] = useState([]);
+  useEffect(() => {
+    setAllSpots(spots);
+  }, [spots]);
+  const handleDelete = (id) => () => {
+    fetch(`http://localhost:5000/spot/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        if (data.deletedCount > 0) {
+          Swal.fire({
+            title: "Success",
+            text: "Delete successfully!",
+            icon: "success",
+            confirmButtonText: "Done",
+          });
+          const newSpots = allSpots.filter((spot) => spot._id !== id);
+          setAllSpots(newSpots);
+        }
+      });
+  };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 lg:mx-0">
-      {spots.map((spot) => {
+      {allSpots.map((spot) => {
         const { _id, image, country, title, location, description } = spot;
         return (
           <div
@@ -34,7 +59,12 @@ const TouristsSpots = ({ spots, admin = false }) => {
                 {admin && (
                   <>
                     <button className="btn btn-info btn-sm">Update</button>
-                    <button className="btn btn-error btn-sm">Delete</button>
+                    <button
+                      className="btn btn-error btn-sm"
+                      onClick={handleDelete(_id)}
+                    >
+                      Delete
+                    </button>
                   </>
                 )}
               </div>
