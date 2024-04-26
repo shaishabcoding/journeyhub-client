@@ -90,7 +90,7 @@ const Navbar = () => {
         {user ? (
           <>
             <div
-              className="tooltip md:mr-4 tooltip-left lg:tooltip-bottom"
+              className="tooltip md:mr-4 z-10 tooltip-left lg:tooltip-bottom"
               data-tip={user?.displayName}
             >
               <img

@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/auth/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddSpot = () => {
   const { user } = useContext(AuthContext);
-  console.log(name);
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       name: user?.displayName,
       email: user?.email,
@@ -13,7 +13,25 @@ const AddSpot = () => {
   });
 
   const handleFormSubmit = handleSubmit((data) => {
-    console.log(data);
+    fetch("http://localhost:5000/spots/new", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          reset();
+          Swal.fire({
+            title: "Success",
+            text: "New Spot insert successfully!",
+            icon: "success",
+            confirmButtonText: "Done",
+          });
+        }
+      });
   });
   return (
     <div className="m-4 p-6 lg:mx-0 rounded-lg lg:pb-10 border bg-gradient-to-br from-green-50 via-pink-50 to-sky-50">
@@ -24,7 +42,7 @@ const AddSpot = () => {
         <form className="" onSubmit={handleFormSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-4">
             <label className="input input-bordered flex items-center gap-2">
-              Image :
+              Image
               <input
                 type="url"
                 className="grow"
@@ -34,7 +52,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Title :
+              Title
               <input
                 type="text"
                 className="grow"
@@ -44,22 +62,22 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Country :
+              Country
               <select
                 required
                 {...register("country")}
                 className="grow border-0 outline-0 bg-transparent"
               >
-                <option value="bangladesh">Bangladesh</option>
-                <option value="thailand">Thailand</option>
-                <option value="indonesia">Indonesia</option>
-                <option value="malaysia">Malaysia</option>
-                <option value="vietnam">Vietnam</option>
-                <option value="cambodia">Cambodia</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Cambodia">Cambodia</option>
               </select>
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Location :
+              Location
               <input
                 type="text"
                 className="grow"
@@ -69,7 +87,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Cost :
+              Cost
               <input
                 type="number"
                 className="grow"
@@ -79,22 +97,22 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Seasonality :
+              Seasonality
               <select
                 required
                 {...register("season")}
                 className="grow border-0 outline-0 bg-transparent"
               >
-                <option value="summer">Summer</option>
-                <option value="monsoon">Monsoon</option>
-                <option value="autumn">Autumn</option>
-                <option value="pre-winter">Pre-Winter</option>
-                <option value="winter">Winter</option>
-                <option value="spring">Spring</option>
+                <option value="Summer">Summer</option>
+                <option value="Monsoon">Monsoon</option>
+                <option value="Autumn">Autumn</option>
+                <option value="Pre-Winter">Pre-Winter</option>
+                <option value="Winter">Winter</option>
+                <option value="Spring">Spring</option>
               </select>
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Time :
+              Time
               <input
                 type="number"
                 className="grow"
@@ -104,7 +122,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
-              Visitors :
+              Visitors
               <input
                 type="number"
                 className="grow"
@@ -114,7 +132,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input bg-gray-50 input-bordered flex items-center gap-2">
-              Email :
+              Email
               <input
                 type="text"
                 className="grow cursor-not-allowed"
@@ -124,7 +142,7 @@ const AddSpot = () => {
               />
             </label>
             <label className="input bg-gray-50 input-bordered flex items-center gap-2">
-              Name :
+              Name
               <input
                 type="text"
                 className="grow cursor-not-allowed"
