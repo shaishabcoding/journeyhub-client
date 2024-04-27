@@ -3,6 +3,7 @@ import { AuthContext } from "../../providers/auth/AuthProvider";
 import TouristsSpots from "../../components/TouristsSpots";
 import Swal from "sweetalert2";
 import Loading from "../../components/Loading";
+import { Bounce } from "react-awesome-reveal";
 
 const MySpot = () => {
   const { user } = useContext(AuthContext);
@@ -52,9 +53,11 @@ const MySpot = () => {
 
   return (
     <div className="my-8">
-      <h2 className="text-xl font-bold md:text-4xl my-8 lg:my-16 text-center dark:text-white">
-        My Tourists Spot
-      </h2>
+      <Bounce>
+        <h2 className="text-xl font-bold md:text-4xl my-8 lg:my-16 text-center dark:text-white">
+          My Tourists Spot
+        </h2>
+      </Bounce>
       {loading ? (
         <Loading></Loading>
       ) : (

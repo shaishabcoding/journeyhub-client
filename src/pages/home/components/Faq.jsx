@@ -1,5 +1,6 @@
 import Lottie from "lottie-react";
 import faqAnim from "./faq-anim.json";
+import { Zoom } from "react-awesome-reveal";
 const Faq = () => {
   const faqs = [
     {
@@ -41,23 +42,27 @@ const Faq = () => {
 
   return (
     <div className="flex flex-col px-4 lg:px-0 md:flex-row gap-10 mb-10">
-      <Lottie animationData={faqAnim} className="flex-1" />
-      <div className="join join-vertical w-full flex-1">
-        {faqs.map((faq, idx) => (
-          <div
-            key={idx}
-            className="collapse collapse-arrow join-item border border-base-300 dark:bg-gray-600 dark:text-white dark:border-gray-400"
-          >
-            <input type="radio" name="my-accordion-4" />
-            <div className="collapse-title text-xl font-medium">
-              {faq.question}
+      <Zoom className="flex-1">
+        <Lottie animationData={faqAnim} className="w-full" />
+      </Zoom>
+      <Zoom className="flex-1">
+        <div className="join join-vertical w-full">
+          {faqs.map((faq, idx) => (
+            <div
+              key={idx}
+              className="collapse collapse-arrow join-item border border-base-300 dark:bg-gray-600 dark:text-white dark:border-gray-400"
+            >
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
+                {faq.question}
+              </div>
+              <div className="collapse-content text-gray-700 dark:text-gray-300">
+                <p>{faq.answer}</p>
+              </div>
             </div>
-            <div className="collapse-content text-gray-700 dark:text-gray-300">
-              <p>{faq.answer}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Zoom>
     </div>
   );
 };

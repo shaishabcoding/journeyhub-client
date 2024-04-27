@@ -3,6 +3,7 @@ import Navbar from "../shared/navbar/Navbar";
 import Footer from "../shared/footer/Footer";
 import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
+import { Fade } from "react-awesome-reveal";
 
 const Root = () => {
   const navigation = useNavigation();
@@ -27,11 +28,15 @@ const Root = () => {
   return (
     <div className="bg-white dark:bg-black font-open-sans">
       <div className="lg:px-28 lg:pt-6 ">
-        <Navbar {...{ isDarkMode, toggleDarkMode }}></Navbar>
+        <Fade>
+          <Navbar {...{ isDarkMode, toggleDarkMode }}></Navbar>
+        </Fade>
         {loading && <Loading></Loading>}
         <Outlet></Outlet>
       </div>
-      <Footer></Footer>
+      <Fade>
+        <Footer></Footer>
+      </Fade>
     </div>
   );
 };
