@@ -32,7 +32,7 @@ const Countries = () => {
                 <h2 className="text-2xl font-semibold">{name}</h2>
                 <p className="my-3 grow">{description}</p>
                 <div className="grid gap-3">
-                  <Link className="grid w-full" to={`/countries/${name}`}>
+                  <Link className="grid w-full" to={`spots/country/${name}`}>
                     <button className="btn btn-accent btn-sm">
                       View spots
                     </button>

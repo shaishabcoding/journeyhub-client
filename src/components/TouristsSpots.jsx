@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 const TouristsSpots = ({ spots, admin = false, handleDelete = () => {} }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 lg:mx-0">
+      {spots.length < 1 && (
+        <p className="text-lg">
+          No spot found 😫
+          <Link to="/spots/new" className="btn btn-sm btn-info ml-2">
+            Add new spot
+          </Link>
+        </p>
+      )}
       {spots.map((spot) => {
         const { _id, image, country, title, location, description } = spot;
         return (

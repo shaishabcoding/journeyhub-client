@@ -10,6 +10,7 @@ import Login from "../pages/signInUp/Login";
 import Error from "../pages/404/Error";
 import AllSpots from "../pages/allSpots/AllSpots";
 import MySpot from "../pages/mySpot/MySpot";
+import Country from "../pages/spotsCountry/Country";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,12 @@ const router = createBrowserRouter([
             <MySpot></MySpot>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "spots/country/:country",
+        element: <Country></Country>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/spots/country/${params.country}`),
       },
     ],
   },
