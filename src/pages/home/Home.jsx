@@ -16,7 +16,6 @@ const Home = () => {
           <button className="btn btn-primary">View all</button>
         </Link>
       </div>
-      <h2>This is home</h2>
     </div>
   );
 };
