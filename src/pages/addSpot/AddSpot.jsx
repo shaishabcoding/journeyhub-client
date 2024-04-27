@@ -106,7 +106,7 @@ const AddSpot = () => {
                 <option value="Summer">Summer</option>
                 <option value="Monsoon">Monsoon</option>
                 <option value="Autumn">Autumn</option>
-                <option value="Pre-Winter">Pre-Winter</option>
+                <option value="PreWinter">PreWinter</option>
                 <option value="Winter">Winter</option>
                 <option value="Spring">Spring</option>
               </select>
