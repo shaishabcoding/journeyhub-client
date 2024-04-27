@@ -33,14 +33,14 @@ const UpdateSpot = () => {
       });
   });
   return (
-    <div className="m-4 p-6 lg:mx-0 rounded-lg lg:pb-10 border bg-gradient-to-br from-green-50 via-pink-50 to-sky-50">
+    <div className="m-4 p-6 lg:mx-0 rounded-lg lg:pb-10 border bg-gradient-to-bl from-green-50  dark:from-gray-700 via-pink-50 dark:via-gray-800 to-sky-50 dark:to-gray-700 dark:text-white dark:border-gray-500">
       <h2 className="text-2xl lg:mt-8 lg:mb-12  lg:text-5xl font-semibold text-center mb-6">
         Update Spot
       </h2>
       <div className="w-full lg:px-12 mx-auto">
-        <form className="" onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-4">
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
               Image
               <input
                 type="url"
@@ -50,7 +50,7 @@ const UpdateSpot = () => {
                 {...register("image")}
               />
             </label>
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
               Title
               <input
                 type="text"
@@ -60,12 +60,12 @@ const UpdateSpot = () => {
                 required
               />
             </label>
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
               Country
               <select
                 required
                 {...register("country")}
-                className="grow border-0 outline-0 bg-transparent"
+                className="grow border-0 outline-0 bg-transparent dark:bg-gray-500 dark:border-gray-400 dark:text-gray-200"
               >
                 <option value="Bangladesh">Bangladesh</option>
                 <option value="Thailand">Thailand</option>
@@ -75,7 +75,7 @@ const UpdateSpot = () => {
                 <option value="Cambodia">Cambodia</option>
               </select>
             </label>
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
               Location
               <input
                 type="text"
@@ -85,7 +85,7 @@ const UpdateSpot = () => {
                 required
               />
             </label>
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
               Cost
               <input
                 type="number"
@@ -95,12 +95,12 @@ const UpdateSpot = () => {
                 required
               />
             </label>
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
               Seasonality
               <select
                 required
                 {...register("season")}
-                className="grow border-0 outline-0 bg-transparent"
+                className="grow border-0 outline-0 bg-transparent dark:bg-gray-500 dark:border-gray-400 dark:text-gray-200"
               >
                 <option value="Summer">Summer</option>
                 <option value="Monsoon">Monsoon</option>
@@ -110,7 +110,7 @@ const UpdateSpot = () => {
                 <option value="Spring">Spring</option>
               </select>
             </label>
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
               Time
               <input
                 type="number"
@@ -120,7 +120,7 @@ const UpdateSpot = () => {
                 required
               />
             </label>
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
               Visitors
               <input
                 type="number"
@@ -130,7 +130,7 @@ const UpdateSpot = () => {
                 required
               />
             </label>
-            <label className="input bg-gray-50 input-bordered flex items-center gap-2">
+            <label className="input dark:bg-gray-600 dark:text-gray-300 dark:border-gray-400 bg-gray-50 input-bordered flex items-center gap-2">
               Email
               <input
                 type="text"
@@ -140,7 +140,7 @@ const UpdateSpot = () => {
                 disabled
               />
             </label>
-            <label className="input bg-gray-50 input-bordered flex items-center gap-2">
+            <label className="input bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-400 input-bordered flex items-center gap-2">
               Name
               <input
                 type="text"
@@ -154,7 +154,7 @@ const UpdateSpot = () => {
           <textarea
             required
             {...register("description")}
-            className="textarea textarea-bordered w-full h-40 my-4"
+            className="textarea textarea-bordered w-full h-40 my-4 dark:bg-gray-500 dark:border-gray-400"
             placeholder="Enter short description"
           ></textarea>
           <button className="btn btn-primary w-full" type="submit">

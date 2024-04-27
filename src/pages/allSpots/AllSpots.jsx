@@ -18,7 +18,7 @@ const AllSpots = () => {
   }, [sort]);
   return (
     <div className="my-8">
-      <h2 className="text-xl font-bold md:text-4xl my-8 lg:my-16 text-center">
+      <h2 className="text-xl font-bold md:text-4xl my-8 lg:my-16 text-center dark:text-white">
         All Tourists Spot
       </h2>
       <div className="flex items-center justify-center gap-4  mb-8 lg:mb-16 ">
@@ -26,7 +26,7 @@ const AllSpots = () => {
           data-aos="zoom-in-left"
           data-aos-delay="400"
           onChange={(e) => setSort(e.target.value)}
-          className="select bg-green-400 rounded-lg  outline-none text-white"
+          className="select bg-green-400 rounded-lg  outline-none text-white dark:bg-gray-700 dark:text-white dark:border-gray-400"
         >
           <option hidden>Sort</option>
           <option value="asc">Ascending</option>

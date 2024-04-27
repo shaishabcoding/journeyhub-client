@@ -3,8 +3,10 @@ import { Link, NavLink } from "react-router-dom";
 import { HiOutlineLogout } from "react-icons/hi";
 import { FiLogIn } from "react-icons/fi";
 import { AuthContext } from "../../providers/auth/AuthProvider";
+import { CiDark, CiLight } from "react-icons/ci";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
+const Navbar = ({ isDarkMode, toggleDarkMode }) => {
   const { user, logOut } = useContext(AuthContext);
 
   const links = (
@@ -25,7 +27,7 @@ const Navbar = () => {
           </li>
           <li className="md:hidden mt-2">
             <button
-              className="btn btn-sm text-xs p-0 bg-white"
+              className="btn btn-sm text-xs p-0 bg-white dark:bg-gray-500 dark:border-gray-400 dark:text-white"
               onClick={logOut}
             >
               Logout <HiOutlineLogout />
@@ -49,7 +51,7 @@ const Navbar = () => {
   return (
     <nav
       id="sidebar"
-      className="navbar bg-gradient-to-l from-green-50 via-pink-50 to-sky-50 lg:rounded-lg"
+      className="navbar bg-gradient-to-r from-green-50  dark:from-gray-600 via-pink-50 dark:via-gray-700 to-sky-50 dark:to-gray-600 dark:text-white lg:rounded-lg"
     >
       <div className="navbar-start">
         <div className="dropdown">
@@ -71,7 +73,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu z-50 bg-gradient-to-br border border-gray-300 from-green-100 via-pink-100 to-sky-100 menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu z-50 bg-gradient-to-br from-green-50  dark:from-gray-700 via-pink-50 dark:via-gray-800 to-sky-50 dark:to-gray-700 dark:text-white dark:border-gray-500 menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {links}
           </ul>
@@ -87,6 +89,14 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex items-center">
+        <div className="dropdown dropdown-bottom dropdown-end mr-2">
+          <button
+            onClick={toggleDarkMode}
+            className="btn m-1 text-3xl btn-ghost dark:hover:bg-gray-500 p-2 rounded-full"
+          >
+            {isDarkMode ? <CiDark /> : <CiLight />}
+          </button>
+        </div>
         {user ? (
           <>
             <div
@@ -95,11 +105,11 @@ const Navbar = () => {
             >
               <img
                 src={user?.photoURL}
-                className="w-10 lg:w-12 aspect-square object-center mr-2 lg:mr-0 rounded-full ring-4 ring-sky-500"
+                className="w-10 lg:w-12 aspect-square object-center mr-2 lg:mr-0 rounded-full ring-4 ring-sky-500 dark:ring-gray-400"
               />
             </div>
             <button
-              className="btn bg-white hidden md:flex items-center justify-center"
+              className="btn bg-white hidden md:flex items-center justify-center dark:bg-gray-500 dark:border-gray-400 dark:text-white"
               onClick={logOut}
             >
               Logout <HiOutlineLogout />
@@ -107,10 +117,16 @@ const Navbar = () => {
           </>
         ) : (
           <div className="hidden md:flex gap-2">
-            <Link to="/login" className="btn bg-white">
+            <Link
+              to="/login"
+              className="btn bg-white dark:bg-gray-500 dark:border-gray-400 dark:text-white"
+            >
               Login <FiLogIn />
             </Link>
-            <Link to="/register" className="btn bg-white">
+            <Link
+              to="/register"
+              className="btn bg-white dark:bg-gray-500 dark:border-gray-400 dark:text-white"
+            >
               Register <FiLogIn />
             </Link>
           </div>
@@ -119,5 +135,8 @@ const Navbar = () => {
     </nav>
   );
 };
-
+Navbar.propTypes = {
+  isDarkMode: PropTypes.bool,
+  toggleDarkMode: PropTypes.func,
+};
 export default Navbar;

@@ -46,8 +46,8 @@ const Banner = () => {
                   <h4 className="text-xl md:text-4xl font-bold">
                     {slide.title}
                   </h4>
-                  <p className="">{slide.description}</p>
-                  <button className="btn btn-sm md:btn-md">
+                  <p>{slide.description}</p>
+                  <button className="btn btn-sm md:btn-md dark:bg-gray-500 dark:text-white dark:border-gray-400">
                     {slide.button}
                   </button>
                 </div>
