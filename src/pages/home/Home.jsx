@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./components/Banner";
 import TouristsSpots from "../../components/TouristsSpots";
 import Countries from "./components/Countries";
+import Faq from "./components/Faq";
 
 const Home = () => {
   const spots = useLoaderData();
@@ -24,6 +25,12 @@ const Home = () => {
           Countries
         </h2>
         <Countries></Countries>
+      </div>
+      <div>
+        <h2 className="text-xl font-bold md:text-4xl my-8 lg:my-16 text-center dark:text-white">
+          FAQ
+        </h2>
+        <Faq></Faq>
       </div>
     </div>
   );
