@@ -35,7 +35,7 @@ const UpdateSpot = () => {
   return (
     <div className="m-4 p-6 lg:mx-0 rounded-lg lg:pb-10 border bg-gradient-to-br from-green-50 via-pink-50 to-sky-50">
       <h2 className="text-2xl lg:mt-8 lg:mb-12  lg:text-5xl font-semibold text-center mb-6">
-        Add Tourists Spot
+        Update Spot
       </h2>
       <div className="w-full lg:px-12 mx-auto">
         <form className="" onSubmit={handleFormSubmit}>

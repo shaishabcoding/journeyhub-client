@@ -55,12 +55,15 @@ const MySpot = () => {
       <h2 className="text-xl font-bold md:text-4xl my-8 lg:my-16 text-center">
         My Tourists Spot
       </h2>
-      {loading && <Loading></Loading>}
-      <TouristsSpots
-        spots={spots}
-        admin={true}
-        handleDelete={handleDelete}
-      ></TouristsSpots>
+      {loading ? (
+        <Loading></Loading>
+      ) : (
+        <TouristsSpots
+          spots={spots}
+          admin={true}
+          handleDelete={handleDelete}
+        ></TouristsSpots>
+      )}
     </div>
   );
 };

@@ -13,7 +13,7 @@ const TouristsSpots = ({ spots, admin = false, handleDelete = () => {} }) => {
         </p>
       )}
       {spots.map((spot) => {
-        const { _id, image, country, title, location, description } = spot;
+        const { _id, image, country, title, cost, description } = spot;
         return (
           <div
             key={_id}
@@ -26,7 +26,7 @@ const TouristsSpots = ({ spots, admin = false, handleDelete = () => {} }) => {
                   {country}
                 </p>
                 <p className="bg-pink-200 rounded-md px-2 text-sm border border-gray-400">
-                  {location}
+                  Cost ${cost}
                 </p>
               </div>
             </div>
