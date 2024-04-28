@@ -1,4 +1,4 @@
-![Banner Image](https://i.ibb.co/jg6YXG1/banner.png)
+<img src="https://i.ibb.co/jg6YXG1/banner.pngs" alt="Banner Image" style="width: 100%;"/>
 
 # JourneyHub
 
