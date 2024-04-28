@@ -1,13 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiOutlineLogout } from "react-icons/hi";
 import { FiLogIn } from "react-icons/fi";
 import { AuthContext } from "../../providers/auth/AuthProvider";
 import { CiDark, CiLight } from "react-icons/ci";
-import PropTypes from "prop-types";
 
-const Navbar = ({ isDarkMode, toggleDarkMode }) => {
+const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    setIsDarkMode(storedTheme === "dark");
+
+    document.documentElement.classList.toggle("dark", storedTheme === "dark");
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem("theme", newMode ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", newMode);
+  };
 
   const links = (
     <>
@@ -134,9 +148,5 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
       </div>
     </nav>
   );
-};
-Navbar.propTypes = {
-  isDarkMode: PropTypes.bool,
-  toggleDarkMode: PropTypes.func,
 };
 export default Navbar;
