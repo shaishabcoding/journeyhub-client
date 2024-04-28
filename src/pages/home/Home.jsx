@@ -3,7 +3,8 @@ import Banner from "./components/Banner";
 import TouristsSpots from "../../components/TouristsSpots";
 import Countries from "./components/Countries";
 import Faq from "./components/Faq";
-import { Bounce, Zoom } from "react-awesome-reveal";
+import { Bounce, Fade, Zoom } from "react-awesome-reveal";
+import NewsLetter from "./components/NewsLetter";
 
 const Home = () => {
   const spots = useLoaderData();
@@ -42,6 +43,9 @@ const Home = () => {
           </h2>
         </Bounce>
         <Faq></Faq>
+        <Fade>
+          <NewsLetter></NewsLetter>
+        </Fade>
       </div>
     </div>
   );

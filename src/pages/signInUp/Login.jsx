@@ -29,7 +29,7 @@ const Login = () => {
   });
   return (
     <Zoom>
-      <div className="m-4 p-6 lg:mx-0 rounded-lg lg:pb-10 border bg-gradient-to-br from-green-50 via-pink-50 to-sky-50">
+      <div className="m-4 p-6 lg:mx-0 rounded-lg lg:pb-10 border  bg-gradient-to-bl from-green-50  dark:from-gray-700 via-pink-50 dark:via-gray-800 to-sky-50 dark:to-gray-700 dark:text-white dark:border-gray-500">
         <h2 className="text-2xl lg:mt-8 lg:mb-12  lg:text-5xl font-semibold text-center mb-6">
           Please Login
         </h2>
@@ -38,7 +38,7 @@ const Login = () => {
             className="grid w-fit mx-auto gap-4"
             onSubmit={handleFormSubmit}
           >
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -57,7 +57,7 @@ const Login = () => {
               />
             </label>
             <div className="join">
-              <label className="input input-bordered flex items-center gap-2 join-item">
+              <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400 join-item">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -81,7 +81,7 @@ const Login = () => {
                 />
               </label>
               <button
-                className="btn join-item text-2xl px-2 border border-gray-300"
+                className="btn join-item text-2xl px-2 border border-gray-300 dark:bg-gray-400 dark:border-gray-400 dark:text-white"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsShowPass(!isShowPass);
@@ -91,7 +91,10 @@ const Login = () => {
               </button>
             </div>
             <div>
-              <button type="submit" className="btn w-full btn-primary ">
+              <button
+                type="submit"
+                className="btn w-full btn-primary dark:bg-blue-800 dark:border-gray-400"
+              >
                 Login <FiLogIn />
               </button>
             </div>
@@ -99,7 +102,7 @@ const Login = () => {
           <p className="text-center">
             Don&apos;t have an account?{" "}
             <Link
-              className="btn btn-link p-0"
+              className="btn btn-link p-0 dark:text-blue-300"
               to="/register"
               state={location?.state}
             >
@@ -109,7 +112,7 @@ const Login = () => {
           <div className="divider mt-0">OR</div>
           <div>
             <button
-              className="btn flex items-center gap-2 text-sky-500 hover:text-white hover:bg-sky-500 bg-white rounded-lg border-2 border-sky-500 hover:border-0 w-full mb-4"
+              className="btn flex items-center gap-2 text-sky-500 hover:text-white hover:bg-sky-500 bg-white rounded-lg border-2 border-sky-500 hover:border-0 w-full mb-4 dark:bg-gray-500 dark:border-gray-400 dark:text-sky-300"
               onClick={() => {
                 googleSignUp(() => {
                   toast.success("Google Sign In successfully");
@@ -122,7 +125,7 @@ const Login = () => {
           </div>
           <div>
             <button
-              className="btn flex items-center gap-2 text-gray-700 hover:text-white hover:bg-gray-700 bg-white rounded-lg border-2 border-gray-700 hover:border-0 w-full"
+              className="btn flex items-center gap-2 text-gray-700 hover:text-white hover:bg-gray-700 bg-white rounded-lg border-2 border-gray-700 hover:border-0 w-full dark:bg-gray-500 dark:border-gray-400 dark:text-white"
               onClick={() => {
                 githubSignUp(() => {
                   toast.success("Github Sign In successfully");

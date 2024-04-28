@@ -32,7 +32,7 @@ const Register = () => {
   return (
     <Zoom>
       {" "}
-      <div className="m-4 p-6 lg:mx-0 rounded-lg border bg-gradient-to-br from-green-50 via-pink-50 to-sky-50">
+      <div className="m-4 p-6 lg:mx-0 rounded-lg border bg-gradient-to-bl from-green-50  dark:from-gray-700 via-pink-50 dark:via-gray-800 to-sky-50 dark:to-gray-700 dark:text-white dark:border-gray-500">
         <h2 className="text-2xl lg:mt-8 lg:text-5xl lg:mb-12 font-semibold text-center mb-6">
           Please Register
         </h2>
@@ -43,10 +43,10 @@ const Register = () => {
         </datalist>
         <img
           src={image ? image : imgHolder}
-          className="w-[150px] aspect-square object-center rounded-full bg-gray-50 ring-4 mx-auto mb-6"
+          className="w-[150px] aspect-square object-center rounded-full bg-gray-50 ring-4 mx-auto mb-6 dark:ring-gray-400"
         />
         <form className="grid w-fit mx-auto gap-4" onSubmit={handleFormSubmit}>
-          <label className="input input-bordered flex items-center gap-2">
+          <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -63,7 +63,7 @@ const Register = () => {
               {...register("name")}
             />
           </label>
-          <label className="input input-bordered flex items-center gap-2 p-2 pr-2">
+          <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400 p-2 pr-2">
             <img
               src={image ? image : imgHolder}
               className="w-[2em] aspect-square object-center rounded-full bg-gray-50 ring-2"
@@ -83,7 +83,7 @@ const Register = () => {
               />
             </div>
           </label>
-          <label className="input input-bordered flex items-center gap-2">
+          <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -102,7 +102,7 @@ const Register = () => {
             />
           </label>
           <div className="join">
-            <label className="input input-bordered flex items-center gap-2 join-item">
+            <label className="input input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400 join-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -126,7 +126,7 @@ const Register = () => {
               />
             </label>
             <button
-              className="btn join-item text-2xl px-2 border border-gray-300"
+              className="btn join-item text-2xl px-2 border border-gray-300 dark:bg-gray-400 dark:border-gray-400 dark:text-white"
               onClick={(e) => {
                 e.preventDefault();
                 setIsShowPass(!isShowPass);
@@ -136,7 +136,10 @@ const Register = () => {
             </button>
           </div>
           <div>
-            <button type="submit" className="btn w-full btn-primary ">
+            <button
+              type="submit"
+              className="btn w-full btn-primary dark:bg-blue-800 dark:border-gray-400"
+            >
               Register <BiUserPlus />
             </button>
           </div>
@@ -144,7 +147,7 @@ const Register = () => {
         <p className="w-fit mx-auto">
           Already have an account?{" "}
           <Link
-            className="btn btn-link p-0"
+            className="btn btn-link p-0 dark:text-blue-300"
             to="/login"
             state={location?.state}
           >
