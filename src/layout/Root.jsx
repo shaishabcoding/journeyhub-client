@@ -11,9 +11,7 @@ const Root = () => {
   return (
     <div className="bg-white dark:bg-black font-open-sans">
       <div className="lg:px-28 lg:pt-6 ">
-        <Fade>
-          <Navbar></Navbar>
-        </Fade>
+        <Navbar></Navbar>
         {loading && <Loading></Loading>}
         <Outlet></Outlet>
       </div>

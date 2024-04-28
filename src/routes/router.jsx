@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/spots"),
+        loader: () => fetch("https://journey-hub-server.vercel.app/spots"),
       },
       {
         path: "/register",
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "/spot/update/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/spot/${params.id}`),
+          fetch(`https://journey-hub-server.vercel.app/spot/${params.id}`),
         element: (
           <PrivateRoute>
             <UpdateSpot></UpdateSpot>
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
       {
         path: "/spot/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/spot/${params.id}`),
+          fetch(`https://journey-hub-server.vercel.app/spot/${params.id}`),
         element: (
           <PrivateRoute>
             <SpotDetails></SpotDetails>
@@ -75,7 +75,9 @@ const router = createBrowserRouter([
         path: "spots/country/:country",
         element: <Country></Country>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/spots/country/${params.country}`),
+          fetch(
+            `https://journey-hub-server.vercel.app/spots/country/${params.country}`
+          ),
       },
     ],
   },

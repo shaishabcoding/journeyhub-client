@@ -10,7 +10,7 @@ const AllSpots = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/spots?sort=" + sort)
+    fetch("https://journey-hub-server.vercel.app/spots?sort=" + sort)
       .then((res) => res.json())
       .then((data) => {
         setSpots(data);

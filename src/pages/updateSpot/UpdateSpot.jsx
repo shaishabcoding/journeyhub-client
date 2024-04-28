@@ -14,7 +14,7 @@ const UpdateSpot = () => {
   });
 
   const handleFormSubmit = handleSubmit((data) => {
-    fetch(`http://localhost:5000/spot/${spot._id}`, {
+    fetch(`https://journey-hub-server.vercel.app/spot/${spot._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

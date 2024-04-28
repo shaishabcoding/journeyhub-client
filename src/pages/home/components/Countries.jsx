@@ -9,7 +9,7 @@ const Countries = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/countries")
+    fetch("https://journey-hub-server.vercel.app/countries")
       .then((res) => res.json())
       .then((data) => {
         setCountries(data);

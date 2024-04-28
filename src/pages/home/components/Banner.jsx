@@ -11,7 +11,7 @@ const Banner = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/slides")
+    fetch("https://journey-hub-server.vercel.app/slides")
       .then((res) => res.json())
       .then((data) => {
         setSlides(data);

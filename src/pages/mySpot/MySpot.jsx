@@ -12,7 +12,7 @@ const MySpot = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/spots/${user.email}`)
+    fetch(`https://journey-hub-server.vercel.app/spots/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setSpots(data);
@@ -31,7 +31,7 @@ const MySpot = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/spot/${id}`, {
+        fetch(`https://journey-hub-server.vercel.app/spot/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

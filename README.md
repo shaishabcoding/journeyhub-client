@@ -4,7 +4,7 @@
 
 Welcome to JourneyHub, your ultimate destination for seamless journey planning and organization!
 
-Visit the live site: [JourneyHub](https://www.journeyhub.com)
+Visit the live site: [JourneyHub](https://journeyhub-shaishabcoding.web.app)
 
 ## About JourneyHub
 
