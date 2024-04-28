@@ -25,7 +25,6 @@ const AuthProvider = ({ children }) => {
         displayName: name,
         photoURL: image,
       }).then(() => {
-        console.log(user);
         callback && callback(user);
       });
     });
