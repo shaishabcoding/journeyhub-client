@@ -61,7 +61,7 @@ const MySpot = () => {
       {loading ? (
         <Loading></Loading>
       ) : (
-        <div className="overflow-x-auto mx-4 lg:mx-0">
+        <div className="overflow-x-auto mx-4 lg:mx-0 rounded-md border">
           <table className="table table-xs md:table-md table-pin-rows table-pin-cols table-zebra">
             <thead>
               <tr>
@@ -72,14 +72,21 @@ const MySpot = () => {
                 <td>Season</td>
                 <td>Cost</td>
                 <td>Visitors</td>
+                <td></td>
+                <td></td>
               </tr>
             </thead>
             <tbody>
               {spots.map((spot, idx) => {
                 const { _id, cost, season, country, title, visitors } = spot;
                 return (
-                  <tr key={_id}>
-                    <th>{idx + 1}</th>
+                  <tr
+                    key={_id}
+                    className="dark:bg-gray-400 dark:text-white dark:even:text-gray-700"
+                  >
+                    <th className="dark:text-black dark:odd:bg-gray-400">
+                      {idx + 1}
+                    </th>
                     <td>{title}</td>
                     <td>{country}</td>
                     <td>
