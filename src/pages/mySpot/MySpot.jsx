@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/auth/AuthProvider";
-import TouristsSpots from "../../components/TouristsSpots";
 import Swal from "sweetalert2";
 import Loading from "../../components/Loading";
 import { Bounce } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const MySpot = () => {
   const { user } = useContext(AuthContext);
@@ -61,11 +61,56 @@ const MySpot = () => {
       {loading ? (
         <Loading></Loading>
       ) : (
-        <TouristsSpots
-          spots={spots}
-          admin={true}
-          handleDelete={handleDelete}
-        ></TouristsSpots>
+        <div className="overflow-x-auto mx-4 lg:mx-0">
+          <table className="table table-xs md:table-md table-pin-rows table-pin-cols table-zebra">
+            <thead>
+              <tr>
+                <th></th>
+                <td>Spot Name</td>
+                <td>Country</td>
+                <td>Location</td>
+                <td>Season</td>
+                <td>Cost</td>
+                <td>Visitors</td>
+              </tr>
+            </thead>
+            <tbody>
+              {spots.map((spot, idx) => {
+                const { _id, cost, season, country, title, visitors } = spot;
+                return (
+                  <tr key={_id}>
+                    <th>{idx + 1}</th>
+                    <td>{title}</td>
+                    <td>{country}</td>
+                    <td>
+                      {visitors
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    </td>
+                    <td>{season}</td>
+                    <td>${cost}</td>
+                    <td>{visitors}</td>
+                    <td>
+                      <Link className="grid w-full" to={`/spot/update/${_id}`}>
+                        <button className="btn btn-xs btn-info md:btn-sm dark:bg-gray-700 dark:text-white dark:border-gray-400">
+                          Update
+                        </button>
+                      </Link>
+                    </td>
+                    <td>
+                      <button
+                        className="btn btn-xs btn-error md:btn-sm dark:bg-gray-700 dark:text-white dark:border-gray-400"
+                        onClick={handleDelete(_id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Zoom } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
-const TouristsSpots = ({ spots, admin = false, handleDelete = () => {} }) => {
+const TouristsSpots = ({ spots }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 lg:mx-0">
       {spots.length < 1 ? (
@@ -43,24 +43,6 @@ const TouristsSpots = ({ spots, admin = false, handleDelete = () => {} }) => {
                         View Details
                       </button>
                     </Link>
-                    {admin && (
-                      <>
-                        <Link
-                          className="grid w-full"
-                          to={`/spot/update/${_id}`}
-                        >
-                          <button className="btn btn-info btn-sm dark:bg-gray-700 dark:text-white dark:border-gray-400">
-                            Update
-                          </button>
-                        </Link>
-                        <button
-                          className="btn btn-error btn-sm dark:bg-gray-700 dark:text-white dark:border-gray-400"
-                          onClick={handleDelete(_id)}
-                        >
-                          Delete
-                        </button>
-                      </>
-                    )}
                   </div>
                 </div>
               </div>
