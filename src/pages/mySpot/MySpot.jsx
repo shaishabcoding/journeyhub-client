@@ -78,7 +78,15 @@ const MySpot = () => {
             </thead>
             <tbody>
               {spots.map((spot, idx) => {
-                const { _id, cost, season, country, title, visitors } = spot;
+                const {
+                  _id,
+                  cost,
+                  location,
+                  season,
+                  country,
+                  title,
+                  visitors,
+                } = spot;
                 return (
                   <tr
                     key={_id}
@@ -89,14 +97,14 @@ const MySpot = () => {
                     </th>
                     <td>{title}</td>
                     <td>{country}</td>
+                    <td>{location}</td>
+                    <td>{season}</td>
+                    <td>${cost}</td>
                     <td>
                       {visitors
                         .toString()
                         .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                     </td>
-                    <td>{season}</td>
-                    <td>${cost}</td>
-                    <td>{visitors}</td>
                     <td>
                       <Link className="grid w-full" to={`/spot/update/${_id}`}>
                         <button className="btn btn-xs btn-info md:btn-sm dark:bg-gray-700 dark:text-white dark:border-gray-400">
