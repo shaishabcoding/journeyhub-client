@@ -11,7 +11,7 @@ const NewsLetter = () => {
           Get The Latest Deals
         </h3>
         <p className="my-4">$30 coupon for first journey.</p>
-        <div className="flex flex-col md:flex-row join join-vertical md:join-horizontal">
+        <div className="flex flex-col md:flex-row join join-vertical md:join-horizontal text-black dark:text-white">
           <label className="input join-item input-bordered flex items-center gap-2 dark:bg-gray-500 dark:border-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
